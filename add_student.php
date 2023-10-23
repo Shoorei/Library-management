@@ -56,7 +56,7 @@ if(isset($_REQUEST['s_contact'])&&isset($_REQUEST['s_pass'])){
                             <tr>
                                 <td class="text-right">Student Contact</td>
                                 <td>
-                                    <input class="form-control" name="s_contact" type="text"  placeholder="Enter Contact" minlength="11" maxlength="11" required="" />
+                                    <input class="form-control" name="s_contact" type="text"  placeholder="Enter Contact" minlength="10" maxlength="11" required="" />
                                 </td>
                             </tr>
                             <tr>

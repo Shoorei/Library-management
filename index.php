@@ -1,4 +1,5 @@
 <?php
+include('head.php');
 session_start();
 if(!isset($_SESSION['se_admin'])){
     include './includes/functions.php';
@@ -11,27 +12,21 @@ if(!isset($_SESSION['se_admin'])){
         $employee_info=check_admin_info_by_mobile($mobile);
         if($employee_info){
             if($employee_info['a_status']==0){
-                $messages = "Please Verify Your Account First.";
+                $messages = "Hãy Xác Minh Tài Khoản Của Bạn";
             }else{
                 if(cms_emp_login($mobile,$password)){
                     $emp_info = cms_emp_login($mobile,$password);
                     $_SESSION['se_admin'] = $emp_info;
                     header("Location: cpanel.php");
-                    //echo "<meta http-equiv='refresh' content='.5;url=myaccount.php'>";
                 }else{
-                    $messages = "Oops! Password not matched!";
+                    $messages = "Mật Khẩu Không Đúng";
                 }
             }
         }else{
-            $messages = "Oops! Wrong mobile number.";
+            $messages = "Số điện thoại không đúng";
         }
     }
 
-
-    // $order_id='O'.time();
-    // $code= strtoupper(uniqid().generatePIN(2));
-    // $pin= generatePIN(3).generatePIN(2);
-    // echo $code;
     ?>
 
     <!DOCTYPE html>
@@ -47,11 +42,10 @@ if(!isset($_SESSION['se_admin'])){
         <style type="text/css">
 
             body{
-                background-image: url("images/lib1.jpg"); /* The image used */
-                /*background-color: #cccccc; !* Used if the image is unavailable *!*/
-                background-repeat: no-repeat; /* Do not repeat the image */
-                background-size: cover; /* Resize the background image to cover the entire container */
-                background-position: center; /* Center the image */
+                background-image: url("images/lib1.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
             }
 
             .login{
@@ -70,6 +64,7 @@ if(!isset($_SESSION['se_admin'])){
                 padding-left: 90px;
                 max-width: 500px;
                 margin: 0 auto;
+                background-color: lightblue;
             }
 
             .header{
@@ -78,11 +73,13 @@ if(!isset($_SESSION['se_admin'])){
                 color: white;
                 padding: 5px;
             }
-
+            .container{
+                
+            }
         </style>
     </head>
     <body>
-    <div style='padding-top: 70px; padding-left: 500px; color: white;'> <div id='message'><h2><?= $messages; ?></h2></div> </div>
+    <div style='padding-top: 70px; padding-left:500px; color: white;'> <div id='message'><h2><?= $messages; ?></h2></div> </div>
         <div class="container">
             <div class="loginForm">
                 <div class="header">
@@ -103,8 +100,8 @@ if(!isset($_SESSION['se_admin'])){
                         <input type="submit" name="Login" class="btn btn-default" value="Login">
                         <input type="reset"  class="btn btn-default" value="Reset">
                     </div>
-
-                    <a href="">Forgot your password?</a>
+                    <br>
+                    <a class="forget" href="">Forgot your password?</a>
 
                 </form>
                 <hr/>

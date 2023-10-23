@@ -21,7 +21,7 @@ if(isset($_POST['s_id']) && isset($_POST['s_status']) ){
 <div class="container">
     <div class="row">
         <div class="col-md-12 well bg-primary" >
-            <h2 class="text-center"><i class="fa fa-book"></i> <b>Library Management System - Dashboard</b><a style="color: white; float: right;" href="logout.php">Logout</a></h2>
+            <h2 class="text-center"><i class="fa fa-book"></i> <b>Library Management System - Dashboard</b><a style="color: white; float: right;" href="logout.php">Log out</a></h2>
             
         </div>
         <div><a class="btn btn-success pull-right" href="admin_list.php">Admin list</a> </div> <br><br><br>
@@ -147,8 +147,8 @@ if(isset($_POST['s_id']) && isset($_POST['s_status']) ){
                 </tr>
                 <tr>
                     <td><b>SL</b></td>
-                    <td><b>S ID</b></td>
-                    <td><b>CODE</b></td>
+                    <td><b>STUDENT ID</b></td>
+                    <td><b>STUDENT CODE</b></td>
                     <td><b>NAME</b></td>
                     <td><b>CONTACT</b></td>
                     <td><b>DEPT</b></td>
