@@ -21,7 +21,7 @@ if(isset($_POST['s_id']) && isset($_POST['s_status']) ){
 <div class="container">
     <div class="row">
         <div class="col-md-12 well bg-primary" >
-            <h2 class="text-center"><i class="fa fa-book"></i> <b>Library Management System - Dashboard</b><a style="color: white; float: right;" href="logout.php">Log out</a></h2>
+            <h2 class="text-center"><i class="fa fa-book"></i> <b>Library Management System - Dashboard</b><a style="color: white; float: right;" href="logout.php">Logout</a></h2>
             
         </div>
         <div><a class="btn btn-success pull-right" href="admin_list.php">Admin list</a> </div> <br><br><br>
@@ -34,8 +34,8 @@ if(isset($_POST['s_id']) && isset($_POST['s_status']) ){
                     <td colspan="6"><b><i class="fa fa-home"></i> Available Books</b></td>
                 </tr>
                 <tr>
-                    <td><b>Book ID</b></td>
-                    <td><b>CODE</b></td>
+                    <td><b>SL</b></td>
+                    <td><b>BOOK CODE</b></td>
                     <td><b>NAME</b></td>
                     <td><b>QUANTITY</b></td>
                     <td><b>PRICE</b></td>
@@ -67,8 +67,8 @@ if(isset($_POST['s_id']) && isset($_POST['s_status']) ){
                     <td colspan="6"><b><i class="fa fa-home"></i> Stock Out Books</b></td>
                 </tr>
                 <tr>
-                    <td><b>Book ID</b></td>
-                    <td><b>CODE</b></td>
+                    <td><b>SL</b></td>
+                    <td><b>BOOK CODE</b></td>
                     <td><b>NAME</b></td>
                     <td><b>QUANTITY</b></td>
                     <td><b>PRICE</b></td>
@@ -122,8 +122,8 @@ if(isset($_POST['s_id']) && isset($_POST['s_status']) ){
                     ?>
                     <tr>
                         <td><b><?= $serial; ?></b></td>
-                        <td><b><?= $books['i_book_id']; ?></b></td>
-                        <td><b><?= $books['i_student_id']; ?></b></td>
+                        <td><b><?= $books['i_book_code']; ?></b></td>
+                        <td><b><?= $books['i_student_code']; ?></b></td>
                         <td><b><?= $books['i_date']; ?></b></td>
                         <td><b><?= $books['i_e_date']; ?></b></td>
                         <td><b><?= $books['i_r_date']; ?></b></td>

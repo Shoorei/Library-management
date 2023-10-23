@@ -9,11 +9,11 @@ if(isset($_REQUEST['s_code'])&&isset($_REQUEST['b_code'])){
     $std_info=get_student_info_by_code($s_code);
     $book_info=get_book_info_by_code($b_code);
     if($book_info['b_qty']>0){
-        $s_id=$std_info['s_id'];
-        $b_id=$book_info['b_id'];      
-        $issue_books=issue_books($s_id,$b_id);
+        $s_code=$std_info['s_code'];
+        $b_code=$book_info['b_code'];      
+        $issue_books=issue_books($s_code,$b_code);
         if($issue_books){
-            update_book_qty_minus($b_id);
+            update_book_qty_minus($b_code);
             $message='Issue Success.';
         }else{
             $message='Issue Failed.';

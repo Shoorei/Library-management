@@ -166,13 +166,13 @@ function add_books($b_code,$b_name,$b_author,$b_publisher,$b_qty,$b_self,$b_pric
     return false;
 }
 
-function issue_books($s_id,$b_id){
+function issue_books($s_code,$b_code){
     global $link;
     $i_status = "1";
-    $i_check=$b_id.$s_id;
+    $i_check=$b_code.$s_code;
     $i_date=date('Y-m-d');
     $i_e_date=date('Y-m-d',strtotime($i_date. ' + 15 days'));
-    $result = mysqli_query($link,"INSERT INTO libsys_issue(i_student_id,i_book_id,i_check,i_date,i_e_date,i_status) VALUES('".$s_id."','".$b_id."','".$i_check."','".$i_date."','".$i_e_date."','".$i_status."')");
+    $result = mysqli_query($link,"INSERT INTO libsys_issue(i_student_code,i_book_code,i_check,i_date,i_e_date,i_status) VALUES('".$s_code."','".$b_code."','".$i_check."','".$i_date."','".$i_e_date."','".$i_status."')");
     if($result){
         return true;
     }
@@ -191,10 +191,10 @@ function get_student_info_from_issue_by_id($s_id,$b_id){
     return $var;
 }
 
-function return_issue_books($b_id,$s_id,$i_date) {
+function return_issue_books($b_code,$s_code,$i_date) {
     global $link;
     $i_status = '1';
-    $i_check  = $b_id.$s_id;
+    $i_check  = $b_code.$s_code;
     $i_r_date = date('Y-m-d');
     $i_diff=round(abs(strtotime($i_r_date)-strtotime($i_date))/86400);
     $i_fine='0';
@@ -223,11 +223,11 @@ function update_book_qty_plus($b_id){
     return false;
 }
 
-function update_book_qty_minus($b_id){
+function update_book_qty_minus($b_code){
     global $link;
-    $book_info=get_book_info_by_id($b_id);
+    $book_info=get_book_info_by_id($b_code);
     $b_qty=$book_info['b_qty']-1;
-    $result = mysqli_query($link,"UPDATE libsys_books SET b_qty='".$b_qty."' WHERE b_id='".$b_id."'");
+    $result = mysqli_query($link,"UPDATE libsys_books SET b_qty='".$b_qty."' WHERE b_code='".$b_code."'");
     if($result){
         return true;
     }
