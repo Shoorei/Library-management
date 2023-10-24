@@ -5,3 +5,4 @@ if(isset($_SESSION['site_admin'])){
 }else{
 header("Location:../index.php");
 }
+?>
