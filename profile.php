@@ -3,9 +3,9 @@ include './includes/functions.php';
 $pageName='Student Profile';
 
 if(isset($_GET['s_id'])){
-  $s_id=$_GET['s_id'];
-$student_info= get_student_info_by_id($s_id);
-$std_issue_info = get_std_issue_info_by_sID($s_id);
+  $s_code=$_GET['s_id'];
+$student_info= get_student_info_by_id($s_code);
+$std_issue_info = get_std_issue_info_by_sID($s_code);
 $dept_info= get_dept_info_by_id($student_info['s_dept']);
 ?>
 

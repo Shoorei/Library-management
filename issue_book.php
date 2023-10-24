@@ -19,7 +19,7 @@ if(isset($_REQUEST['s_code'])&&isset($_REQUEST['b_code'])){
             $message='Issue Failed.';
         }
     }else{
-        $message='Books Qty 0.';
+        $message='The Title you are trying to issue is out of stock';
     }
 }
 

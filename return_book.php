@@ -108,7 +108,7 @@ if(isset($_POST['b_id']) && isset($_POST['s_id']) && isset($_POST['i_date']) ){
                     <?php 
                     
                             } else {
-                                $message='No books are issued with this student ID.';
+                                $message='Error: Wrong book or student code.';
                                 echo '<h1>'.$message.'<a href="return_book.php"><b>Back to return</b></a>'.'</h1>';
                             }
                     
