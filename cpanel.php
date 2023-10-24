@@ -39,7 +39,7 @@ if(isset($_POST['s_id']) && isset($_POST['s_status']) ){
                     <td><b>NAME</b></td>
                     <td><b>QUANTITY</b></td>
                     <td><b>PRICE</b></td>
-                    <td><b>RACK</b></td>
+                    <td><b>SHELF NO.</b></td>
                 </tr>
                 </thead>
                 <tbody>
@@ -72,7 +72,7 @@ if(isset($_POST['s_id']) && isset($_POST['s_status']) ){
                     <td><b>NAME</b></td>
                     <td><b>QUANTITY</b></td>
                     <td><b>PRICE</b></td>
-                    <td><b>RACK</b></td>
+                    <td><b>SHELF NO.</b></td>
                 </tr>
                 </thead>
                 <tbody>
@@ -105,8 +105,8 @@ if(isset($_POST['s_id']) && isset($_POST['s_status']) ){
                 </tr>
                 <tr>
                     <td><b>SL</b></td>
-                    <td><b>Book ID</b></td>
-                    <td><b>Student ID</b></td>
+                    <td><b>Book Code</b></td>
+                    <td><b>Student Code</b></td>
                     <td><b>Issue Date</b></td>
                     <td><b>End Date</b></td>
                     <td><b>Return Data</b></td>

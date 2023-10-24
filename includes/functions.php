@@ -57,10 +57,10 @@ function get_all_libsys_issue() {
     return $var;
 }
 
-function get_std_issue_info_by_sID($s_id) {
+function get_std_issue_info_by_sID($s_code) {
     $var = array();
     global $link;
-    $query = mysqli_query($link,"SELECT * FROM libsys_issue WHERE i_student_id='".$s_id."' ");
+    $query = mysqli_query($link,"SELECT * FROM libsys_issue WHERE i_student_code='".$s_code."' ");
     if($query){
         while($row = mysqli_fetch_array($query)){
             $var[] = $row;
@@ -212,11 +212,11 @@ function return_issue_books($b_code,$s_code,$i_date) {
     
 }
 
-function update_book_qty_plus($b_id){
+function update_book_qty_plus($b_code){
     global $link;
-    $book_info=get_book_info_by_id($b_id);
+    $book_info=get_book_info_by_code($b_code);
     $b_qty=$book_info['b_qty']+1;
-    $result = mysqli_query($link,"UPDATE libsys_books SET b_qty='".$b_qty."' WHERE b_id='".$b_id."'");
+    $result = mysqli_query($link,"UPDATE libsys_books SET b_qty='".$b_qty."' WHERE b_code='".$b_code."'");
     if($result){
         return true;
     }
@@ -225,7 +225,7 @@ function update_book_qty_plus($b_id){
 
 function update_book_qty_minus($b_code){
     global $link;
-    $book_info=get_book_info_by_id($b_code);
+    $book_info=get_book_info_by_code($b_code);
     $b_qty=$book_info['b_qty']-1;
     $result = mysqli_query($link,"UPDATE libsys_books SET b_qty='".$b_qty."' WHERE b_code='".$b_code."'");
     if($result){

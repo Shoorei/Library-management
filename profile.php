@@ -75,8 +75,8 @@ $dept_info= get_dept_info_by_id($student_info['s_dept']);
                             ?>
                             <tr>
                                 <td><b><?= $serial; ?></b></td>
-                                <td><b><?= $books['i_book_id']; ?></b></td>
-                                <td><b><?= $books['i_student_id']; ?></b></td>
+                                <td><b><?= $books['i_book_code']; ?></b></td>
+                                <td><b><?= $books['i_student_code']; ?></b></td>
                                 <td><b><?= $books['i_date']; ?></b></td>
                                 <td><b><?= $books['i_e_date']; ?></b></td>
                                 <td><b><?= $books['i_r_date']; ?></b></td>
@@ -87,7 +87,8 @@ $dept_info= get_dept_info_by_id($student_info['s_dept']);
                         </tbody>
                         <tfoot></tfoot>
                     </table>
-                    <?php }else{
+                    <?php 
+                    }else{
                         echo "<b>No books are Issued!</b>";
                     } ?>
                 </div>
