@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2023 at 06:24 PM
+-- Generation Time: Oct 24, 2023 at 12:31 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -91,13 +91,13 @@ CREATE TABLE `libsys_books` (
 INSERT INTO `libsys_books` (`b_id`, `b_code`, `b_name`, `b_author`, `b_publishar`, `b_qty`, `b_self`, `b_price`, `b_status`) VALUES
 (1, 'SAO1', 'SWORD ART ONLINE VOL.1', 4, 1, 4, 1, 50000.00, 1),
 (2, 'SAO2', 'SWORD ART ONLINE VOL.2', 4, 1, 5, 1, 50000.00, 1),
-(3, 'MST1', 'MUSHOKU TENSEI VOL.1', 6, 1, 5, 2, 250000.00, 1),
+(3, 'MST1', 'MUSHOKU TENSEI VOL.1', 6, 1, 4, 2, 250000.00, 1),
 (4, 'MST2', 'MUSHOKU TENSEI VOL.2', 6, 1, 4, 2, 250000.00, 1),
-(5, 'DNT', 'Đắc nhân tâm', 1, 2, 10, 3, 300000.00, 1),
+(5, 'DNT', 'Đắc nhân tâm', 1, 2, 8, 3, 300000.00, 1),
 (6, 'NFA', 'Không gia đình', 3, 2, 7, 5, 40000.00, 1),
 (7, 'MST3', 'MUSHOKU TENSEI VOL.3', 6, 1, 4, 2, 15000.00, 1),
-(8, 'COW', 'Tiếng gọi nơi hoang dã', 3, 1, 1, 6, 15000.00, 1),
-(9, 'JOPHP', 'THE JOY OF PHP: A BEGINNING', 5, 2, 7, 9, 12000.00, 1);
+(8, 'COW', 'Tiếng gọi nơi hoang dã', 3, 1, 3, 6, 15000.00, 1),
+(9, 'JOPHP', 'THE JOY OF PHP: A BEGINNING', 5, 2, 4, 9, 12000.00, 1);
 
 -- --------------------------------------------------------
 
@@ -129,8 +129,8 @@ INSERT INTO `libsys_departments` (`d_id`, `d_code`, `d_name`) VALUES
 
 CREATE TABLE `libsys_issue` (
   `i_id` int(11) NOT NULL,
-  `i_book_id` int(11) NOT NULL,
-  `i_student_id` int(11) NOT NULL,
+  `i_book_code` varchar(11) NOT NULL,
+  `i_student_code` int(11) NOT NULL,
   `i_check` int(11) NOT NULL COMMENT 'book_id+student_id',
   `i_date` date NOT NULL,
   `i_e_date` date NOT NULL COMMENT 'End date',
@@ -143,12 +143,8 @@ CREATE TABLE `libsys_issue` (
 -- Dumping data for table `libsys_issue`
 --
 
-INSERT INTO `libsys_issue` (`i_id`, `i_book_id`, `i_student_id`, `i_check`, `i_date`, `i_e_date`, `i_r_date`, `i_fine`, `i_status`) VALUES
-(88, 1, 1, 11, '2023-10-23', '2023-11-07', '0000-00-00', 0.00, 1),
-(89, 4, 2, 42, '2023-10-23', '2023-11-07', '0000-00-00', 0.00, 1),
-(90, 8, 1, 81, '2023-10-23', '2023-11-07', '0000-00-00', 0.00, 1),
-(91, 8, 2, 82, '2023-10-23', '2023-11-07', '0000-00-00', 0.00, 1),
-(93, 8, 3, 0, '2023-10-23', '2023-11-07', '2023-10-23', 0.00, 0);
+INSERT INTO `libsys_issue` (`i_id`, `i_book_code`, `i_student_code`, `i_check`, `i_date`, `i_e_date`, `i_r_date`, `i_fine`, `i_status`) VALUES
+(104, 'COW', 20010960, 0, '2023-10-24', '2023-11-08', '0000-00-00', 0.00, 1);
 
 -- --------------------------------------------------------
 
@@ -216,9 +212,9 @@ CREATE TABLE `libsys_students` (
 --
 
 INSERT INTO `libsys_students` (`s_id`, `s_code`, `s_name`, `s_dept`, `s_semester`, `s_contact`, `s_password`, `s_status`) VALUES
-(1, '20010960', 'Le Tien Hung', 1, 7, '0939624810', 'Hung123', 1),
-(2, '20010990', 'Nguyen Thanh Tung', 2, 7, '00934243423', 'Tung123', 1),
-(3, '20010980', 'Nguyen Van A', 4, 0, '09876543210', 'c3c2bd601f0ec6a02ed4a4e55cc15b0b', 1);
+(1, '20010960', 'LE TIEN HUNG', 2, 7, '09399624810', '12bf4611c3912fd1cd8ef5a4f864c8a3', 1),
+(2, '20010990', 'NGUYEN THANH TUNG', 2, 7, '00934243423', 'Tung123', 1),
+(3, '20010980', 'NGUYEN VAN A', 4, 0, '09876543210', 'c3c2bd601f0ec6a02ed4a4e55cc15b0b', 1);
 
 --
 -- Indexes for dumped tables
@@ -256,7 +252,7 @@ ALTER TABLE `libsys_departments`
 --
 ALTER TABLE `libsys_issue`
   ADD PRIMARY KEY (`i_id`),
-  ADD UNIQUE KEY `i_check` (`i_check`);
+  ADD KEY `i_check` (`i_check`) USING BTREE;
 
 --
 -- Indexes for table `libsys_publisher`
@@ -312,7 +308,7 @@ ALTER TABLE `libsys_departments`
 -- AUTO_INCREMENT for table `libsys_issue`
 --
 ALTER TABLE `libsys_issue`
-  MODIFY `i_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `i_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `libsys_publisher`
@@ -330,7 +326,7 @@ ALTER TABLE `libsys_semester`
 -- AUTO_INCREMENT for table `libsys_students`
 --
 ALTER TABLE `libsys_students`
-  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

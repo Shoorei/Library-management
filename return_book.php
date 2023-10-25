@@ -41,8 +41,8 @@ if(isset($_POST['b_id']) && isset($_POST['s_id']) && isset($_POST['i_date']) ){
                         $s_code= $_REQUEST['student'];
                         $student_info=get_student_info_by_code($s_code);
                         $book_info=get_book_info_by_code($b_code);
-                        $s_id = $student_info['s_id'];
-                        $b_id = $book_info['b_id'];
+                        $s_id = $student_info['s_code'];
+                        $b_id = $book_info['b_code'];
                         $student_info_from_issue = get_student_info_from_issue_by_id($s_id,$b_id);
                         if($student_info_from_issue){
                     ?>
@@ -108,11 +108,13 @@ if(isset($_POST['b_id']) && isset($_POST['s_id']) && isset($_POST['i_date']) ){
                     <?php 
                     
                             } else {
-                                $message='Error: Wrong book or student code.';
+                                $message='Error: No issue information could be found with your input.'; 
+                                echo '</br>';
                                 echo '<h1>'.$message.'<a href="return_book.php"><b>Back to return</b></a>'.'</h1>';
                             }
                     
                             }else{ ?>
+                            <h1 class="text-center"> Return Book </h1>
                     <form action="" method="post">
                         <table class="table table-bordered">
                             <tr>

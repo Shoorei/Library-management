@@ -60,7 +60,7 @@ if(isset($_REQUEST['s_code'])&&isset($_REQUEST['b_code'])){
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="text-right">Student Id:</td>
+                                    <td class="text-right">Student Code:</td>
                                     <td><?php echo $student_info['s_code']; ?></td>
                                 </tr>
                                 <tr>
@@ -123,6 +123,7 @@ if(isset($_REQUEST['s_code'])&&isset($_REQUEST['b_code'])){
                             }
                     
                             }else{ ?>
+                            <h1 class="text-center">Issue Book </h1>
                     <form action="" method="post">
                         <table class="table table-bordered">
                             <tr>

@@ -196,7 +196,7 @@ function return_issue_books($b_code,$s_code,$i_date) {
     $i_status = '1';
     $i_check  = $b_code.$s_code;
     $i_r_date = date('Y-m-d');
-    $i_diff=round(abs(strtotime($i_r_date)-strtotime($i_date))/86400);
+    $i_diff=round(abs(strtotime($i_r_date)-strtotime($i_date))/50000);
     $i_fine='0';
     $fine_rate='1';
     if($i_diff>15){

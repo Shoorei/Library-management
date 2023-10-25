@@ -21,7 +21,7 @@ if(isset($_POST['s_id']) && isset($_POST['s_status']) ){
 <div class="container">
     <div class="row">
         <div class="col-md-12 well bg-primary" >
-            <h2 class="text-center"><i class="fa fa-book"></i> <b>Library Management System - Dashboard</b><a style="color: white; float: right;" href="logout.php">Logout</a></h2>
+            <h2 class="text-center"><i class="fa fa-book"></i> <b>Library Management System - Dashboard</b><a style="color: white; float: right;" href="logout.php">Log out</a></h2>
             
         </div>
         <div><a class="btn btn-success pull-right" href="admin_list.php">Admin list</a> </div> <br><br><br>
@@ -96,12 +96,12 @@ if(isset($_POST['s_id']) && isset($_POST['s_status']) ){
         </div>
 
         <div class="col-md-12 well">
-            <h1 class="text-primary"><i class="fa fa-external-link"></i> Books Managing <a class="btn btn-primary" href="issue_book.php">Issue Books</a> <a class="btn btn-success" href="return_book.php">Return Book</a> </h1>
+            <h1 class="text-primary"><i class="fa fa-external-link"></i> Books Managing <a class="btn btn-primary" href="issue_book.php">Issue Book</a> <a class="btn btn-success" href="return_book.php">Return Book</a> </h1>
             <hr>
             <table class="table table-bordered table-striped">
                 <thead>
                 <tr class="btn-danger text-center">
-                    <td colspan="8"><b><i class="fa fa-home"></i> Issue Books</b></td>
+                    <td colspan="8"><b><i class="fa fa-home"></i> Issued Books</b></td>
                 </tr>
                 <tr>
                     <td><b>SL</b></td>
@@ -147,7 +147,6 @@ if(isset($_POST['s_id']) && isset($_POST['s_status']) ){
                 </tr>
                 <tr>
                     <td><b>SL</b></td>
-                    <td><b>STUDENT ID</b></td>
                     <td><b>STUDENT CODE</b></td>
                     <td><b>NAME</b></td>
                     <td><b>CONTACT</b></td>
@@ -166,7 +165,6 @@ if(isset($_POST['s_id']) && isset($_POST['s_status']) ){
                     ?>
                     <tr>
                         <td><b><?php echo $i; ?></b></td>
-                        <td><b><?php echo $students['s_id']; ?></b></td>
                         <td><b><?php echo $students['s_code']; ?></b></td>
                         <td><b><?php echo $students['s_name']; ?></b></td>
                         <td><b><?php echo $students['s_contact']; ?></b></td>
@@ -209,10 +207,12 @@ if(isset($_POST['s_id']) && isset($_POST['s_status']) ){
             </table>
         </div>
     </div>
-
     <?php include './footer.php'; ?>
 </div>
+        <style><?php include './font-awesome/css/font-awesome.css';?></style>
+        <a href="#"><img class="top" src="./images/top.png"></a>
 </body>
+                                    
 </html>
 
 <?php

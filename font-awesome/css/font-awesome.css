@@ -1670,3 +1670,18 @@
 .fa-meanpath:before {
   content: "\f20c";
 }
+.top{
+  margin-right: 50px;
+    float:right;
+    width: 60px;
+    max-height: auto;
+    background: #007bff;
+    border-radius: 10px;
+    place-self: end;
+    position: sticky;
+    bottom: 20px;
+
+}
+.content{
+  font-size: larger;
+}
