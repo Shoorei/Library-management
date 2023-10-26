@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2023 at 12:31 PM
+-- Generation Time: Oct 26, 2023 at 10:00 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -91,13 +91,14 @@ CREATE TABLE `libsys_books` (
 INSERT INTO `libsys_books` (`b_id`, `b_code`, `b_name`, `b_author`, `b_publishar`, `b_qty`, `b_self`, `b_price`, `b_status`) VALUES
 (1, 'SAO1', 'SWORD ART ONLINE VOL.1', 4, 1, 4, 1, 50000.00, 1),
 (2, 'SAO2', 'SWORD ART ONLINE VOL.2', 4, 1, 5, 1, 50000.00, 1),
-(3, 'MST1', 'MUSHOKU TENSEI VOL.1', 6, 1, 4, 2, 250000.00, 1),
+(3, 'MST1', 'MUSHOKU TENSEI VOL.1', 6, 1, 3, 2, 250000.00, 1),
 (4, 'MST2', 'MUSHOKU TENSEI VOL.2', 6, 1, 4, 2, 250000.00, 1),
-(5, 'DNT', 'Đắc nhân tâm', 1, 2, 8, 3, 300000.00, 1),
+(5, 'DNT', 'Đắc nhân tâm', 1, 2, 7, 3, 300000.00, 1),
 (6, 'NFA', 'Không gia đình', 3, 2, 7, 5, 40000.00, 1),
 (7, 'MST3', 'MUSHOKU TENSEI VOL.3', 6, 1, 4, 2, 15000.00, 1),
 (8, 'COW', 'Tiếng gọi nơi hoang dã', 3, 1, 3, 6, 15000.00, 1),
-(9, 'JOPHP', 'THE JOY OF PHP: A BEGINNING', 5, 2, 4, 9, 12000.00, 1);
+(9, 'JOPHP', 'THE JOY OF PHP: A BEGINNING', 5, 2, 3, 9, 12000.00, 1),
+(10, 'MST4', 'MUSHOKU TENSEI VOL.4', 6, 1, 4, 3, 50000.00, 1);
 
 -- --------------------------------------------------------
 
@@ -144,7 +145,11 @@ CREATE TABLE `libsys_issue` (
 --
 
 INSERT INTO `libsys_issue` (`i_id`, `i_book_code`, `i_student_code`, `i_check`, `i_date`, `i_e_date`, `i_r_date`, `i_fine`, `i_status`) VALUES
-(104, 'COW', 20010960, 0, '2023-10-24', '2023-11-08', '0000-00-00', 0.00, 1);
+(104, 'COW', 20010960, 0, '2023-10-24', '2023-11-08', '2023-10-25', 0.00, 0),
+(105, 'DNT', 20010960, 0, '2023-10-25', '2023-11-09', '2023-10-25', 0.00, 0),
+(106, 'MST1', 20010960, 0, '2023-10-25', '2023-11-09', '2023-10-25', 0.00, 0),
+(109, 'JOPHP', 20010990, 0, '2023-10-25', '2023-11-09', '2023-10-25', 0.00, 0),
+(110, 'COW', 20010960, 0, '2023-10-25', '2023-11-09', '0000-00-00', 0.00, 1);
 
 -- --------------------------------------------------------
 
@@ -296,7 +301,7 @@ ALTER TABLE `libsys_author`
 -- AUTO_INCREMENT for table `libsys_books`
 --
 ALTER TABLE `libsys_books`
-  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `libsys_departments`
@@ -308,7 +313,7 @@ ALTER TABLE `libsys_departments`
 -- AUTO_INCREMENT for table `libsys_issue`
 --
 ALTER TABLE `libsys_issue`
-  MODIFY `i_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `i_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT for table `libsys_publisher`
